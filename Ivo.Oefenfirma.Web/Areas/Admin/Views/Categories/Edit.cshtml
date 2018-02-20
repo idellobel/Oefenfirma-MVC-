@@ -1,0 +1,51 @@
+﻿@model Ivo.OefenfirmaCMS.lib.Entities.Categorie
+
+@{
+    ViewBag.Title = "Wijzig";
+}
+
+<h2>Wijzig de Categorie of Hoofdcategorie</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Categorienaam, new { @class = "control-label col-md-4" })
+            <div class="col-md-8">
+                @Html.TextBoxFor(model => model.Categorienaam,  new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Categorienaam, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class = "control-label col-md-4">Pas de Hoofdcategorie aan</label>
+            @*@Html.LabelFor(model => model.ParentId, "ParentId", htmlAttributes: new {@class = "control-label col-md-2"})*@
+            <div class="col-md-8">
+                @Html.DropDownList("ParentId", null,  new {@class = "form-control"})
+                @Html.ValidationMessageFor(model => model.ParentId, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-4 col-md-8">
+                <input type="submit" value="Bewaar" class="btn btn-danger" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Terug naar Categorielijst", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

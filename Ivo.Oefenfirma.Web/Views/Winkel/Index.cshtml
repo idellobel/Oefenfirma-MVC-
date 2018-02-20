@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Ivo.OefenfirmaCMS.lib.Entities.Categorie>
+@{
+    ViewBag.Title = "Winkel";
+}
+
+<div class="container">
+
+    <h2>Onze Producten</h2>
+    <p>
+        @Html.ActionLink(" ", "Index", "Home", new { Area = "" }, new { @class = "btn btn-success glyphicon glyphicon-home", title = "Startpagina" })
+    </p>
+
+    <div class="row ">
+
+        @foreach (var categorie in Model)
+        {
+            <div class="col-md-3">
+                <div class="panel panel-danger">
+                    <div class="panel-heading text-center">
+                        <div class="row" style="height: 40px;">
+
+                            <h5>@Html.ActionLink(categorie.Categorienaam, "Producten", new { categorie = categorie.Categorienaam })</h5>
+
+                            
+                        </div>
+                    </div>
+                    <div class="panel-body" >
+                        <a href="#">
+                            <img src="~/Content/images/categorie.jpg"  alt="afbeelding" title="foto"
+                                 class="img-responsive" style="width: 100%" />
+                        </a>
+                    </div>
+                   
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+

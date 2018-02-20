@@ -1,0 +1,104 @@
+﻿@model Ivo.OefenfirmaCMS.lib.Entities.AnderePersonen
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Verwijder 'AnderePersoon'</h2>
+
+<h3>Wil je deze persoon echt verwijderen?</h3>
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Gebruikersnaam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gebruikersnaam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaswoordHash)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaswoordHash)
+        </dd>*@
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Familienaam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Familienaam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Voornaam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Voornaam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Adres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Adres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Postcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Postcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gemeente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gemeente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hoedanigheid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hoedanigheid)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Verwijder" class="btn btn-danger" /> |
+            @Html.ActionLink("Terug naar AnderePersonenlijst", "Index")
+        </div>
+    }
+</div>

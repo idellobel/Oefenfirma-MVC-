@@ -1,0 +1,48 @@
+﻿@model Ivo.OefenfirmaCMS.lib.Entities.Product
+@{
+    ViewBag.Title = "Details";
+}
+<br/>
+<a href="@Url.Action("Producten", new { categorie = Model.Categorie.Categorienaam })">
+        &laquo; Terug naar productenlijst
+    </a> 
+
+@*<a href="~/Winkel/Producten">&laquo; Terug naar productenlijst</a>*@
+
+<h2>Detail van de producten</h2>
+
+
+
+<div class="container ">
+
+
+    <div class="col-md-12">
+        <div class="panel panel-success">
+            <div class="panel-heading text-center">
+                <h5><b>Naam:</b> <br />@Model.Artikelnaam</h5>
+            </div>
+
+            <div class="panel-body text-center">
+                <h5><b>Nummer:</b><br />@Model.Artikelnummer</h5>
+            </div>
+
+            <div class="panel-body text-center">
+                <h5><b>Omschrijving:</b><br />@Model.Artikelomschrijving</h5>
+            </div>
+
+            <div class="panel-body text-center">
+                <h5><b>Prijs:</b> <br />@String.Format("{0:n2}", Model.Prijs) <span class="glyphicon glyphicon-euro "></span></h5>
+            </div>
+
+            <div class="panel-footer">
+                <img src="@Url.Content("~/" +@Model.FiguurURL)" alt="afbeelding" title="foto" height="60"/>
+
+            </div>
+        </div>
+        <div>
+           
+            @*@Html.ActionLink("Toevoegen aan mandje", "Toevoegen", new { Controller = "Mandje", id = Model.Artikelnummer})*@
+        </div>
+    </div>
+
+</div>

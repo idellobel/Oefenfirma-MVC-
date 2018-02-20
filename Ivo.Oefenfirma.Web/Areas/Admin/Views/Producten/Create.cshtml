@@ -1,0 +1,117 @@
+﻿@model Ivo.Oefenfirma.Web.Areas.Admin.Models.ProductCreateVm
+
+@{
+    ViewBag.Title = "Voeg Product toe";
+}
+
+<h2>Voeg een Product toe</h2>
+
+
+@using (Html.BeginForm("Create", "Producten", null, FormMethod.Post, new {enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+       
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product.Artikelnummer,  new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Product.Artikelnummer,  new { @class = "form-control"  })
+                @Html.ValidationMessageFor(model => model.Product.Artikelnummer, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product.Artikelnaam, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Product.Artikelnaam, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Product.Artikelnaam, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product.Artikelomschrijving, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Product.Artikelomschrijving, new
+           {
+               @class = "form-control",
+               rows = "7",
+               style = "width:500px;border: 1px solid #8A8575; "
+
+           })
+                @Html.ValidationMessageFor(model => model.Product.Artikelomschrijving, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product.Prijs, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Product.Prijs,new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Product.Prijs, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product.FiguurURL,  new { @class = "control-label col-md-2" })
+            
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Product.FiguurURL, new
+                { @class = "form-control",
+                    rows = "2",
+                    style = "width:500px;border: 1px solid #8A8575; "
+                })
+                @*@Html.ValidationMessageFor(model => model.Product.FiguurURL, "", new { @class = "text-danger" })*@  
+                
+            </div>
+        </div >
+        
+        <div class="form-group">
+            @Html.Label("Photo", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <input type="file" id="file" name="file" />
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product.Spotlight, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.CheckBoxFor(model => model.Product.Spotlight, new { @class = "form-control  "})
+
+                @Html.ValidationMessageFor(model => model.Product.Spotlight, "", new { @class = "text-danger" })
+            </div>
+        </div >
+    
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product.Categorie.Categorienaam,  new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Product.Categorie.Id, Model.Categorielijst,  new { @class = "form-control" })
+                
+                @Html.ValidationMessageFor(model => model.Product.Categorie.Id, "", new {@class = "text-danger"})
+            </div>
+        </div>
+       
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Product.Leverancier.LeverancierNaam,  new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Product.Leverancier.GebruikerId, Model.Leverancierlijst, new {@class = "form-control"})
+             
+                @Html.ValidationMessageFor(model => model.Product.Leverancier.LeverancierID, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Voeg toe" class="btn btn-success " />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Terug naar Productenlijst", "Index")
+</div>
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

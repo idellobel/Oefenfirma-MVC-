@@ -1,0 +1,40 @@
+﻿@model Ivo.OefenfirmaCMS.lib.Entities.Categorie
+
+@{
+    ViewBag.Title = "Verwijder";
+}
+
+<h2>Verwijder Categorie</h2>
+
+<h3>Wil je  @Model.Categorienaam echt verwijderen?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Parent.Children)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Parent.Categorienaam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Categorienaam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Categorienaam)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Verwijder" class="btn btn-danger" /> |
+            @Html.ActionLink("Terug naar Categorielijst", "Index")
+        </div>
+    }
+</div>

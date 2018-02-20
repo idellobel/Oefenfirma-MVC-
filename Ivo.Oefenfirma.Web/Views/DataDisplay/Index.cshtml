@@ -1,0 +1,350 @@
+﻿@using System.Web.UI.WebControls
+@model DataDisplayVm
+
+
+<div class="row text-center">
+    <div class="col-lg-12">
+        <h2 class="bg-success populair">HTML Tabellen </h2>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="table-responsive ">
+        <table id="EntityProducten" class="table table-condensed  table-bordered table-striped ">
+            <thead>
+                <tr>
+                    <td colspan="4" class="text-center">
+                        <h3>Entiteit Categorieën</h3>
+                    </td>
+
+                </tr>
+           
+            <tr>
+                <th>ID</th>
+                <th>Categorienaam</th>
+                <th>ParentId</th>
+                <th>Hoofdcategorie</th>
+
+
+            </tr>
+            </thead>
+            @foreach (var item in Model.Categories)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(ModelItem => item.Categorienaam)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(ModelItem => item.ParentId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(ModelItem => item.Parent.Categorienaam)
+                    </td>
+
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h2 class="bg-success populair text-center">Tabel 2</h2>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <div class="table-responsive">
+        <table id="EntityCategorieen" class="table table-condensed  table-bordered table-striped">
+            <thead>
+                <tr>
+                    <td colspan="5" class="text-center">
+                        <h3>Entiteit Categorieên</h3>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <th>Artikelnummer</th>
+                    <th>Artikelnaam</th>
+                    <th>Artikelomschrijving</th>
+                    <th>Prijs</th>
+                    <th>Afbeelding</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model.Products)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Artikelnummer)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Artikelnaam)
+                    </td>
+                    <td>
+                        @Truncate(item.Artikelomschrijving, 10)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Prijs)
+                    </td>
+                    <td>
+                        @*@Html.DisplayFor(ModelItem => item.FiguurURL)*@
+                        <img src="@Url.Content("~/Content/images/"+ item.Artikelnummer  +".jpg")" />
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <h2 class="bg-success populair text-center">Tabel 3</h2>
+    </div>
+</div>
+
+<div class="container">
+    <div class="table-responsive">
+        <table id="EntityGebruikers" class="table table-condensed  table-bordered table-striped">
+            <thead>
+                <tr>
+                    <td colspan="9" class="text-center">
+                        <h3>Entiteit Gebruikers</h3>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <th>GebruikerId</th>
+                    <th>Familienaam</th>
+                    <th>Voornaam</th>
+                    <th>FullName</th>
+                    <th>Adres</th>
+                    <th>Postcode</th>
+                    <th>Gemeente</th>
+                    <th>Phone</th>
+                    <th>Mail</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model.Gebruikers)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GebruikerId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Familienaam)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Voornaam)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FullName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Adres)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gemeente)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(ModelItem => item.Postcode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                   
+
+                    
+
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+<div class="container">
+    <div class="table-responsive">
+        <table id="EntityAnderePersonen" class="table table-condensed  table-bordered table-striped">
+            <thead>
+            <tr>
+                <td colspan="9" class="text-center">
+                    <h3>Entiteit Andere Personen</h3>
+                </td>
+
+            </tr>
+
+            <tr>
+                <th>GebruikerId</th>
+                <th>Familienaam</th>
+                <th>Voornaam</th>
+                <th>Hoedanigheid</th>
+                <th>Adres</th>
+                <th>Postcode</th>
+                <th>Gemeente</th>
+                <th>Phone</th>
+                <th>Mail</th>
+            </tr>
+            </thead>
+            @foreach (var item in Model.AnderePersonen)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GebruikerId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Familienaam)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Voornaam)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Hoedanigheid)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Adres)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Gemeente)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(ModelItem => item.Postcode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+
+
+
+
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+<div class="container">
+    <div class="table-responsive">
+        <table id="EntityKlant" class="table table-condensed  table-bordered table-striped">
+            <thead>
+            <tr>
+                <td colspan="6" class="text-center">
+                    <h3>Entiteit Klant</h3>
+                </td>
+
+            </tr>
+
+            <tr>
+                <th>GebruikerId</th>
+                <th>Familienaam</th>
+                <th>Voornaam</th>
+                <th>Klantnaam</th>
+                <th>Klantdatum</th>
+                <th>KlantId</th>
+                  
+            </tr>
+            </thead>
+            @foreach (var item in Model.Klanten)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GebruikerId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Familienaam)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Voornaam)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.KlantNaam)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.KlantDatum)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.KlantID)
+                    </td>
+                  
+
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+<div class="container">
+    <div class="table-responsive">
+        <table id="EntityLeverancier" class="table table-condensed  table-bordered table-striped">
+            <thead>
+                <tr>
+                    <td colspan="7" class="text-center">
+                        <h3>Entiteit Leverancier</h3>
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <th>GebruikerId</th>
+                    <th>Familienaam</th>
+                    <th>Voornaam</th>
+                    <th>LeverancierNaam</th>
+                    <th>LeverancierDatum</th>
+                    <th>LeverancierID</th>
+                    <th>Levert Product</th>
+                   
+                </tr>
+            </thead>
+            @foreach (var item in Model.Leveranciers)
+            {
+
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GebruikerId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Familienaam)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Voornaam)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LeverancierNaam)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LeverancierDatum)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LeverancierID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Products)
+                    </td>
+                    
+
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

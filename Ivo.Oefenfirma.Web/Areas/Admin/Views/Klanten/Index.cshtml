@@ -1,0 +1,94 @@
+﻿@model IEnumerable<Ivo.OefenfirmaCMS.lib.Entities.Klant>
+
+@helper Truncate(string input, int length)
+{
+    if (input.Length <= length)
+    {
+            @Html.Raw(input)
+    }
+    else
+    {
+            @Html.Raw(input.Substring(0, length))<text>...</text>
+    }
+}
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Beheer Klanten</h2>
+
+<p>
+    @Html.ActionLink("Voeg een nieuwe Klant toe", "Create")
+</p>
+<table class="table">
+    <tr>
+        @*<th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>*@
+       <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Familienaam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Voornaam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gemeente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KlantDatum)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KlantID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KlantNaam)
+        </th>
+        <th>BEWERKEN</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>*@
+        <td>
+            @*@Html.DisplayFor(modelItem => item.Email)*@
+            @Truncate(item.Email, 10)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Familienaam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Voornaam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gemeente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KlantDatum)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KlantID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KlantNaam)
+        </td>
+        <td>
+            @Html.ActionLink("Wijzig", "Edit", new { id=item.GebruikerId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.GebruikerId }) |
+            @Html.ActionLink("Verwijder", "Delete", new { id=item.GebruikerId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,121 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+
+<div class="row text-center">
+    <div class="col-lg-12">
+        <h2 class="h2">Administratieve site - DASHBORD</h2>
+
+    </div>
+</div>
+
+<p>
+   
+   
+    @Html.ActionLink(" ", "Index", "Home", new {Area = ""}, new {@class= "btn btn-success glyphicon glyphicon-home" , title="Startpagina" })
+</p>
+
+
+
+
+<div class="row text-center"  >
+    <div class="col-md-4 col-sm-6 " style="margin-top: 25px;">
+        <div class=" thumbnail dashitems">
+            <a href="@Url.Action("Index","Categories")">
+                <img src="@Url.Content("~/Content/images/categorie.jpg")" alt="Categorie" title=" Categorie">
+            </a>
+            <div class="caption ">
+                <p>
+                    @using (Html.BeginForm("Index", "Categories"))
+                    {
+                        <button class="btn-success" type="submit">Categorieënbeheer</button>
+                    }
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6  " style="margin-top: 25px;">
+        <div class="thumbnail dashitems ">
+            <a href="@Url.Action("Index", "Producten")">
+                <img src="@Url.Content("~/Content/images/product.jpg")" alt="Product" title="Product" />
+            </a>
+            
+            <div class="caption ">
+                <p>
+                    @using (Html.BeginForm("Index", "Producten"))
+                    {
+                        <button class="btn-success" type="submit">Productenbeheer</button>
+                    }
+                  
+                </p>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6  " style="margin-top: 25px;">
+        <div class="thumbnail dashitems ">
+            <a href="@Url.Action("Index", "Users")">
+                <img src="@Url.Content("~/Content/images/user.png")" alt="Product" title="Product" />
+            </a>
+
+            <div class="caption ">
+                <p>
+                    @using (Html.BeginForm("Index", "Users"))
+                    {
+                        <button class="btn-success" type="submit">Userbeheer</button>
+                    }
+
+                </p>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row text-center"  >
+    <div class="col-md-4 col-sm-6 " style="margin-top: 25px;" >
+        <div class="thumbnail dashitems">
+            <a href="@Url.Action("Index","AnderePersonen")">
+                <img  src="@Url.Content("~/Content/images/gebruiker.jpg")" alt="AnderePersonen" title="Gebruikers Andere Personen">
+            </a>
+            <div class="caption">
+                @using (Html.BeginForm("Index", "AnderePersonen"))
+                {
+                    <button class="btn-success" type="submit">AnderePersonenBeheer</button>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 " style="margin-top: 25px;">
+        <div class="thumbnail dashitems">
+            <a href="@Url.Action("Index","Klanten")">
+                <img src="@Url.Content("~/Content/images/klantbeheer.jpg")" alt="Klant" title="Klant">
+            </a>
+            <div class="caption">
+
+                @using (Html.BeginForm("Index", "Klanten"))
+                {
+                    <button class="btn-success" type="submit">Klantenbeheer</button>
+                }
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-sm-6 " style="margin-top: 25px;">
+        <div class="thumbnail dashitems">
+            <a href="@Url.Action("Index", "Leveranciers")">
+                <img src="@Url.Content("~/Content/images/leverancier.jpg")" alt="Leverancier" title="Leverancier">
+            </a>
+            <div class="caption  ">
+
+                @using (Html.BeginForm("Index", "Leveranciers"))
+                {
+                    <button class="btn-success" type="submit">Leveranciersbeheer</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

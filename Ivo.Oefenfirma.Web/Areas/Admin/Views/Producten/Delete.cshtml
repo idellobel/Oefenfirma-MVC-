@@ -1,0 +1,62 @@
+﻿@model Ivo.OefenfirmaCMS.lib.Entities.Product
+
+@{
+    ViewBag.Title = "Verwijder product";
+}
+
+<h2>Verwijder het product</h2>
+
+<h3>Wil je dit product echt verwijderen?</h3>
+<div>
+   <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Artikelnummer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Artikelnummer)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Artikelnaam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Artikelnaam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Artikelomschrijving)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Artikelomschrijving)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prijs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prijs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FiguurURL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FiguurURL)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Verwijder" class="btn btn-danger" /> |
+            @Html.ActionLink("Terug naar Productenlijst", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,128 @@
+﻿@model Ivo.Oefenfirma.Web.ViewModels.ContactinformatieVm
+
+@{
+    ViewBag.Title = "Contact";
+}
+@*@section scripts {
+        <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZeltnInPcyW7bvzvv1QrP3XcF0ZukSEU;callback=init_map" ></script>
+        <script>
+
+            function init_map() {
+                var varLocation = new window.google.maps.LatLng(51.198079, 3.197693);
+
+                var varMapoptions = {
+                    center: varLocation,
+                    zoom: 14
+                };
+                var varMap;
+                var varMarker = new window.google.maps.Marker({
+                    position: varLocation,
+                    map: varMap,
+                    title: "IVOBytes"
+                });
+                varMap = new window.google.maps.Map(document.getElementById("map-container"),
+                    varMapoptions);
+                varMarker.setMap(varMap);
+
+            }
+
+            google.maps.event.addDomListener(window, "load", init_map);
+        </script>
+
+    }*@
+<br />
+<br />
+<p>
+    @Html.ActionLink(" ", "Index", "Home", new { Area = "" }, new { @class = "btn btn-success glyphicon glyphicon-home", title = "Startpagina" })
+</p>
+
+<!--<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--</head>
+<body>-->
+
+<div class="body container">
+    <div class="row">
+        <div id="map-outer" class="col-md-12">
+            <div id="address" class="col-md-2">
+                <h4><strong>Wij bevinden ons hier: </strong></h4>
+
+                <h3>
+                    <span class="logEen">IVO</span>
+                    <span class="logTwee">|</span>
+                    <span class="logDrie-B">Bytes</span>
+                </h3><br>
+                Manitobalaan 48 <br>
+                8200 St Andries<br>
+                Brugge<br>
+                België<br>
+                <i class="glyphicon glyphicon-earphone " aria-hidden="true"></i> +32 (0)58 59 45 66<br>
+                <i class="glyphicon glyphicon-phone" aria-hidden="true"></i> +32 (0)486 87 73 75<br>
+                <i class="glyphicon glyphicon-envelope" aria-hidden="true"></i>
+                <a href=""> ivoBytes@gmail.com</a><br>
+
+                <i class="glyphicon glyphicon-globe" aria-hidden="true"></i>
+                <a href=""> www.ivobytes.be</a><br>
+
+
+
+            </div>
+
+            <div id="map-container" class="col-md-4">
+
+                <img src="~/Content/images/locatie.png" />
+            </div>
+
+            <div class="col-md-6">
+                <h4><strong>Contacteer ons:</strong></h4>
+                <h5>Hebt u een vraag of een verzoekje ?</h5>
+                <h5>Vul dan gerust onderstaande gegevens in en we nemen zo snel mogelijk contact met u op.</h5>
+
+                @using (Html.BeginForm())
+            {
+                    @Html.AntiForgeryToken();
+
+                    <div>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(e => e.Naam, new { @class = "control-label col-md-2" })
+                        @Html.TextBoxFor(e => e.Naam, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(e => e.Naam, "", new { @class = "text-danger" })
+                    </div>
+                    <p>
+                        @Html.LabelFor(e => e.Email, new { @class = "control-label col-md-2" })
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(e => e.Email, "", new { @class = "text-danger" })
+                    </p>
+                    <div>
+                        @Html.LabelFor(e => e.Informatie, new { @class = "control-label col-md-2" })
+                        @Html.TextAreaFor(e => e.Informatie, new
+                           {
+                               @class = "form-control",
+                               rows = "6",
+                               style = "width: 400px;"
+                           })
+                        @Html.ValidationMessageFor(e => e.Naam, "", new { @class = "text-danger" })
+
+                    </div>
+                    <br />
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Verstuur" class="btn btn-success" />
+                        </div>
+                    </div>
+
+                }
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+
+
+

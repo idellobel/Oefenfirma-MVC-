@@ -1,0 +1,41 @@
+﻿@model Ivo.OefenfirmaCMS.lib.Entities.Categorie
+@{
+    ViewBag.Title = "Producten";
+}
+<br/>
+<a href="@Url.Action("Index", new { categorie = Model.Categorienaam })">
+        &laquo; Terug naar categorieënlijst
+    </a> 
+<div class="container">
+
+    <h2>Onze Producten voor de @Model.Categorienaam</h2>
+
+    <div class="row ">
+
+        @foreach (var product in Model.Products)
+        {
+            <div class="col-md-3">
+                <div class="panel panel-danger">
+                    <div class="panel-heading text-center">
+                        <div class="row" style="height: 40px;">
+
+                            <h5>@Html.ActionLink(product.Artikelnaam, "Details", new { id = product.Artikelnummer })</h5>
+
+
+                        </div>
+                    </div>
+                    <div class="panel-body" id="docBody">
+                        <a href="#">
+                            <img src="@Url.Content("~/" + product.FiguurURL)" alt="afbeelding" title="foto"
+                                 class="img-responsive" style="width: 100%" />
+                        </a>
+                    </div>
+                    <div class="panel-footer text-center">
+                        <button class="btn btn-success">@String.Format("{0:n2}", product.Prijs)<span class="glyphicon glyphicon-euro "></span></button>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</div>

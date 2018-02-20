@@ -1,0 +1,56 @@
+﻿@model Ivo.OefenfirmaCMS.lib.Entities.User
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Verwijder User</h2>
+
+<h3>Wil je deze @Model.Gebruikersnaam zeker verwijderen?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Gebruikersnaam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gebruikersnaam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PaswoordHash)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PaswoordHash)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RememberMe)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RememberMe)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Verwijder" class="btn btn-danger" /> |
+            @Html.ActionLink("Terug naar Userlijst", "Index")
+        </div>
+    }
+</div>

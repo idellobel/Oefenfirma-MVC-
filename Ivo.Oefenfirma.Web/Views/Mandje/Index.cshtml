@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Mandje</h2>
+
+<p>
+    @Html.ActionLink(" ", "Index", "Home", new { Area = "" }, new { @class = "btn btn-success glyphicon glyphicon-home", title = "Startpagina" })
+</p>
+
+<div class="container">
+    <img src="~/Content/images/unco.jpg" alt="foto" title="Afbeelding" />
+</div>
+<br/>
+<br/>
+
+<h4>Bestellingen dient u te doen via de contactpagina.</h4>
+
+<a href="@Url.Action("Contact","Home")">
+    &laquo; Naar Contactpagina
+</a> 

@@ -1,0 +1,113 @@
+﻿
+@using Ivo.OefenfirmaCMS.lib.Entities
+@model IEnumerable<Ivo.OefenfirmaCMS.lib.Entities.Product>
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<div class="container">
+    
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+           
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img class="img-responsive" src="~/Content/images/ict1.jpg" alt="foto" title="afbeelding" style="height: 400px;">
+                <div class="carousel-caption">
+                    <h1 >IVOBytes - Uw partner voor ICT-materiaal</h1>
+
+                </div>
+            </div>
+
+            <div class="item">
+                <img class="img-responsive" src="~/Content/images/ict2.jpg" alt="foto" title="afbeelding" style="height: 400px;">
+                <div class="carousel-caption">
+                    <h1 >Vraag ons advies en investeer nu</h1>
+                </div>
+            </div>
+
+            <div class="item">
+                <img class="img-responsive" src="~/Content/images/ict3.jpg" alt="foto" title="afbeelding" style="height: 400px;">
+                <div class="carousel-caption">
+                    <h1>Stap voor stap op uw maat</h1>
+                </div>
+
+            </div>
+        </div>
+
+
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+  
+
+
+    <div class="col-lg-12 intro">
+        <h4 >IVOBytes is een fictieve oefenfirma van CVO IVO Brugge die het levenslicht zag in januari 2014. <br/><br/>
+            Ons bedrijf levert hardware en software aan zowel bedrijven als particulieren.
+            Met onze expertise in computerhardware en burotica aan uw zijde bent u verzekerd van een professionele ICT infrastructuur.
+            Wanneer u kiest voor onze hoogwaardige ICT producten verhoogt u niet alleen de productiviteit van uw werknemers, maar ook de
+            verwerkingstijd van uw cruciale bedrijfsprocessen.<br/><br/>
+            Behalve onze nauwkeurig geselecteerde hardware leveren we ook bijbehorende kantoorsoftware, multimedia en toepassingen voor
+            entertainment. Wenst u software op maat? Ook dat kan! Stuur ons uw vereisten en wij maken voor u een passende offerte.
+        </h4>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="bg-success populair">Momenteel @Model.Count() producten in de spotlights!</h2>
+        </div>
+    </div>
+
+
+
+    <div class="row ">
+
+        @foreach (var product in Model)
+        {
+            <div class="col-md-3">
+                <div class="panel panel-success">
+                    <div class="panel-heading text-center">
+                        <div class="row" style="height: 40px;">
+                           
+
+                            <h5>@Html.ActionLink(product.Artikelnaam,"Details", "Winkel", new {id = product.Artikelnummer }, null)
+                               
+                            </h5>
+
+
+                        </div>
+                    </div>
+                    <div class="panel-body" id="docBody">
+                       
+                        <img src="@Url.Content("~/" + product.FiguurURL)" alt="afbeelding" title="foto" />
+                                      
+                       
+                    </div>
+                    <div class="panel-footer text-center">
+                        <button class="btn btn-primary">@String.Format("{0:n2}",product.Prijs) <span class="glyphicon glyphicon-euro "></span></button>
+                 
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

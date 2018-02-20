@@ -1,0 +1,76 @@
+﻿@using Ivo.OefenfirmaCMS.lib.Entities
+@model Ivo.OefenfirmaCMS.lib.Entities.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details Product</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Artikelnummer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Artikelnummer)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Artikelnaam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Artikelnaam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Artikelomschrijving)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Artikelomschrijving)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Spotlight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Spotlight)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Prijs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prijs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FiguurURL)
+        </dt>
+
+        <dd>
+            @*@Html.DisplayFor(model => model.FiguurURL)*@
+           
+            <img src="@Url.Content("~/" + Model.FiguurURL)" alt="afbeelding" title="foto" />
+           
+        </dd>
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Files)
+        </dt>
+
+       <dd>
+           @Html.DisplayFor(model => model.FiguurURL)
+
+            <img src="~Content/images/@Model.Files.First(f =>f.FileType == FileType.Photo)).FileName"  title="foto" />
+
+        </dd>*@
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Wijzig", "Edit", new { id = Model.Artikelnummer }) |
+    @Html.ActionLink("Terug naar productenlijst", "Index")
+</p>
