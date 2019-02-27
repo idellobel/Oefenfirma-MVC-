@@ -73,53 +73,13 @@
     <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\Role.cs" />
     <Compile Include="Entities\User.cs" />
-    <Compile Include="Migrations\201706071017189_cat.cs" />
-    <Compile Include="Migrations\201706071017189_cat.Designer.cs">
-      <DependentUpon>201706071017189_cat.cs</DependentUpon>
+    <Compile Include="Migrations\201803262122490_initial.cs" />
+    <Compile Include="Migrations\201803262122490_initial.Designer.cs">
+      <DependentUpon>201803262122490_initial.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201706071020041_prd1.cs" />
-    <Compile Include="Migrations\201706071020041_prd1.Designer.cs">
-      <DependentUpon>201706071020041_prd1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706071022149_prd2.cs" />
-    <Compile Include="Migrations\201706071022149_prd2.Designer.cs">
-      <DependentUpon>201706071022149_prd2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706071024247_prd3.cs" />
-    <Compile Include="Migrations\201706071024247_prd3.Designer.cs">
-      <DependentUpon>201706071024247_prd3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706071025497_user.cs" />
-    <Compile Include="Migrations\201706071025497_user.Designer.cs">
-      <DependentUpon>201706071025497_user.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706071058493_wijzigprijsprod.cs" />
-    <Compile Include="Migrations\201706071058493_wijzigprijsprod.Designer.cs">
-      <DependentUpon>201706071058493_wijzigprijsprod.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706080859496_aanpprijsprodenformcontact.cs" />
-    <Compile Include="Migrations\201706080859496_aanpprijsprodenformcontact.Designer.cs">
-      <DependentUpon>201706080859496_aanpprijsprodenformcontact.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706081514372_FilePaths.cs" />
-    <Compile Include="Migrations\201706081514372_FilePaths.Designer.cs">
-      <DependentUpon>201706081514372_FilePaths.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706120904541_roles.cs" />
-    <Compile Include="Migrations\201706120904541_roles.Designer.cs">
-      <DependentUpon>201706120904541_roles.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706120917080_dbrole.cs" />
-    <Compile Include="Migrations\201706120917080_dbrole.Designer.cs">
-      <DependentUpon>201706120917080_dbrole.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706121510310_displayprice.cs" />
-    <Compile Include="Migrations\201706121510310_displayprice.Designer.cs">
-      <DependentUpon>201706121510310_displayprice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201706131018402_registreerMailadduser.cs" />
-    <Compile Include="Migrations\201706131018402_registreerMailadduser.Designer.cs">
-      <DependentUpon>201706131018402_registreerMailadduser.cs</DependentUpon>
+    <Compile Include="Migrations\201803262128462_cat.cs" />
+    <Compile Include="Migrations\201803262128462_cat.Designer.cs">
+      <DependentUpon>201803262128462_cat.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -137,41 +97,11 @@
     <Folder Include="bin\Release\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201706071017189_cat.resx">
-      <DependentUpon>201706071017189_cat.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201803262122490_initial.resx">
+      <DependentUpon>201803262122490_initial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706071020041_prd1.resx">
-      <DependentUpon>201706071020041_prd1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706071022149_prd2.resx">
-      <DependentUpon>201706071022149_prd2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706071024247_prd3.resx">
-      <DependentUpon>201706071024247_prd3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706071025497_user.resx">
-      <DependentUpon>201706071025497_user.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706071058493_wijzigprijsprod.resx">
-      <DependentUpon>201706071058493_wijzigprijsprod.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706080859496_aanpprijsprodenformcontact.resx">
-      <DependentUpon>201706080859496_aanpprijsprodenformcontact.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706081514372_FilePaths.resx">
-      <DependentUpon>201706081514372_FilePaths.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706120904541_roles.resx">
-      <DependentUpon>201706120904541_roles.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706120917080_dbrole.resx">
-      <DependentUpon>201706120917080_dbrole.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706121510310_displayprice.resx">
-      <DependentUpon>201706121510310_displayprice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201706131018402_registreerMailadduser.resx">
-      <DependentUpon>201706131018402_registreerMailadduser.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201803262128462_cat.resx">
+      <DependentUpon>201803262128462_cat.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

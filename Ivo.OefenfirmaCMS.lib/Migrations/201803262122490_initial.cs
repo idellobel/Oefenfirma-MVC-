@@ -3,7 +3,7 @@ namespace Ivo.OefenfirmaCMS.lib.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class cat : DbMigration
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
@@ -41,7 +41,7 @@ namespace Ivo.OefenfirmaCMS.lib.Migrations
                         Artikelnummer = c.String(nullable: false, maxLength: 20),
                         Artikelnaam = c.String(nullable: false, maxLength: 512),
                         Artikelomschrijving = c.String(nullable: false),
-                        Prijs = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Prijs = c.Decimal(nullable: false, storeType: "money"),
                         FiguurURL = c.String(maxLength: 512),
                         Spotlight = c.Boolean(nullable: false),
                         Categorie_Id = c.Int(),
@@ -54,7 +54,7 @@ namespace Ivo.OefenfirmaCMS.lib.Migrations
                 .Index(t => t.Leverancier_GebruikerId);
             
             CreateTable(
-                "dbo.Files",
+                "dbo.FilePaths",
                 c => new
                     {
                         FileId = c.Int(nullable: false, identity: true),
@@ -69,6 +69,15 @@ namespace Ivo.OefenfirmaCMS.lib.Migrations
                 .Index(t => t.Artikelnummer);
             
             CreateTable(
+                "dbo.Roles",
+                c => new
+                    {
+                        RoleId = c.Long(nullable: false, identity: true),
+                        Name = c.String(),
+                    })
+                .PrimaryKey(t => t.RoleId);
+            
+            CreateTable(
                 "dbo.Users",
                 c => new
                     {
@@ -76,8 +85,22 @@ namespace Ivo.OefenfirmaCMS.lib.Migrations
                         Gebruikersnaam = c.String(nullable: false, maxLength: 200),
                         PaswoordHash = c.String(nullable: false, maxLength: 1000),
                         RememberMe = c.Boolean(nullable: false),
+                        Email = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
+            
+            CreateTable(
+                "dbo.UserRoles",
+                c => new
+                    {
+                        User_Id = c.Long(nullable: false),
+                        Role_RoleId = c.Long(nullable: false),
+                    })
+                .PrimaryKey(t => new { t.User_Id, t.Role_RoleId })
+                .ForeignKey("dbo.Users", t => t.User_Id, cascadeDelete: true)
+                .ForeignKey("dbo.Roles", t => t.Role_RoleId, cascadeDelete: true)
+                .Index(t => t.User_Id)
+                .Index(t => t.Role_RoleId);
             
             CreateTable(
                 "dbo.Andere Personen",
@@ -123,22 +146,28 @@ namespace Ivo.OefenfirmaCMS.lib.Migrations
             DropForeignKey("dbo.Leverancier", "GebruikerId", "dbo.Gebruikers");
             DropForeignKey("dbo.Klant", "GebruikerId", "dbo.Gebruikers");
             DropForeignKey("dbo.Andere Personen", "GebruikerId", "dbo.Gebruikers");
+            DropForeignKey("dbo.UserRoles", "Role_RoleId", "dbo.Roles");
+            DropForeignKey("dbo.UserRoles", "User_Id", "dbo.Users");
             DropForeignKey("dbo.Products", "Leverancier_GebruikerId", "dbo.Leverancier");
-            DropForeignKey("dbo.Files", "Artikelnummer", "dbo.Products");
+            DropForeignKey("dbo.FilePaths", "Artikelnummer", "dbo.Products");
             DropForeignKey("dbo.Products", "Categorie_Id", "dbo.Categories");
             DropForeignKey("dbo.Categories", "ParentId", "dbo.Categories");
             DropIndex("dbo.Leverancier", new[] { "GebruikerId" });
             DropIndex("dbo.Klant", new[] { "GebruikerId" });
             DropIndex("dbo.Andere Personen", new[] { "GebruikerId" });
-            DropIndex("dbo.Files", new[] { "Artikelnummer" });
+            DropIndex("dbo.UserRoles", new[] { "Role_RoleId" });
+            DropIndex("dbo.UserRoles", new[] { "User_Id" });
+            DropIndex("dbo.FilePaths", new[] { "Artikelnummer" });
             DropIndex("dbo.Products", new[] { "Leverancier_GebruikerId" });
             DropIndex("dbo.Products", new[] { "Categorie_Id" });
             DropIndex("dbo.Categories", new[] { "ParentId" });
             DropTable("dbo.Leverancier");
             DropTable("dbo.Klant");
             DropTable("dbo.Andere Personen");
+            DropTable("dbo.UserRoles");
             DropTable("dbo.Users");
-            DropTable("dbo.Files");
+            DropTable("dbo.Roles");
+            DropTable("dbo.FilePaths");
             DropTable("dbo.Products");
             DropTable("dbo.Categories");
             DropTable("dbo.Gebruikers");

@@ -7,13 +7,13 @@ namespace Ivo.OefenfirmaCMS.lib.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class registreerMailadduser : IMigrationMetadata
+    public sealed partial class cat : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(registreerMailadduser));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(cat));
         
         string IMigrationMetadata.Id
         {
-            get { return "201706131018402_registreerMailadduser"; }
+            get { return "201803262128462_cat"; }
         }
         
         string IMigrationMetadata.Source
